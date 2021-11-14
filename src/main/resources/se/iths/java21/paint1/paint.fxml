@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.java21.controller.PaintController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                 <Menu text="File">
+                     <MenuItem onAction="#onSave" text="Save" />
+                     <MenuItem onAction="#onExit" text="Exit" />
+                 </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox alignment="CENTER" spacing="5">
+                    <Button  mnemonicParsing="false" onMouseClicked="#rectangleSelected" text="Rectangle" />
+                    <Button  mnemonicParsing="false" onMouseClicked="#circleSelected" text="Circle" />
+                    <ColorPicker fx:id="colorPicker" />
+                </HBox>
+                 <CheckBox fx:id="selectMode" text="Select mode" />
+            <Button mnemonicParsing="false" onAction="#setSize" text="Size" />
+            <Button mnemonicParsing="false" onAction="#setColor" text="Colour" />
+            <Button fx:id="deleteShape" mnemonicParsing="false" onAction="#deleteShape" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#undoShape" text="Undo" />
+            </ToolBar>
+        </VBox>
+    </top>
+   <right>
+       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+           <TextField id="xTextfield" layoutX="20.0" layoutY="33.0" text="18" fx:id="xTextField" />
+           <Label layoutX="20.0" layoutY="14.0" text="width" fx:id="xLabel" />
+           <Label fx:id="yLabel" layoutX="20.0" layoutY="71.0" text="height" />
+           <TextField id="yTextfield" fx:id="yTextField" layoutX="22.0" layoutY="88.0" prefHeight="25.0" prefWidth="158.0" />
+       </Pane>
+   </right>
+   <center>
+       <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+           <Canvas fx:id="canvas" height="543.0" onMouseClicked="#handleCanvasClick" width="399.0" />
+       </StackPane>
+   </center>
+
+</BorderPane>
